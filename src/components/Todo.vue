@@ -19,6 +19,7 @@ import { createNamespacedFnHelpers } from '@/vuexz/mapper';
 export default class Todo extends Vue {
   @Prop() private id!: string;
   public beforeCreate() {
+    // todo.idを元に名前空間を作り、各map~~~を作る
     const { mapState, mapGetters, mapActions } = createNamespacedFnHelpers(() => `todos/${this.id}`);
     // todo内容と実行済み状態を取得
     this.$options.computed = {
