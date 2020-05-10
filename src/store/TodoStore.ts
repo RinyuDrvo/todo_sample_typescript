@@ -73,6 +73,7 @@ export class TodoModule implements Vuex.Module<ITodoState, any> {
   }
 }
 
+// todoモジュールを作成する関数
 export const createTodoModule = (todo: Todo) => {
   return new TodoModule(todo);
 };
