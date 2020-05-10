@@ -77,7 +77,7 @@ const actions: DefineActions<ITodoListActions, ITodoListState, ITodoListMutation
 // mutationへのcommitのフック
 const plugin = (store: Vuex.Store<any>) => {
   state.todos.forEach((todo) => {
-    // モジュールの数だけ追加
+    // todoの数だけ追加
     store.registerModule('todos/' + todo.id, createTodoModule(todo));
   });
   // ミューテーションが変化したら購読
@@ -98,6 +98,7 @@ const plugin = (store: Vuex.Store<any>) => {
   });
 };
 
+// todoリストを作成するモジュール
 export const createTodoListModule = (store: Vuex.Store<any>) => {
   return new PluggableModule<ITodoListState, any>({
     store,
